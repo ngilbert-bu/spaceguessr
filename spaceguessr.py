@@ -118,7 +118,7 @@ def update_game(root, title_label, image_label, button_frame):
     # Fetch and update the image
     response = requests.get(image_url)
     img_data = Image.open(BytesIO(response.content))
-    img_data = resize_image_with_aspect_ratio(img_data, max_width=500, max_height=350)
+    img_data = resize_image_with_aspect_ratio(img_data, max_width=600, max_height=300)
     img = ImageTk.PhotoImage(img_data)
     image_label.config(image=img)
     image_label.image = img
@@ -149,10 +149,10 @@ def display_game():
     """Create a GUI to display the image and allow the user to guess."""
     # GUI setup
     root = tk.Tk()
-    root.title("Astronomy Picture of the Day Quiz")
+    root.title("Spaceguessr Quiz")
 
     # Title label
-    title_label = tk.Label(root, text="Where am I in space?", font=("Arial", 16, "bold"), wraplength=500)
+    title_label = tk.Label(root, text="Where am I in space?", font=("Arial", 14, "bold"), wraplength=500)
     title_label.pack(pady=10)
 
     # Image label
