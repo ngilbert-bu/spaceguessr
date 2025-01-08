@@ -42,10 +42,10 @@ def generate_answers(title):
     """Generate one correct and three false answers for the image title."""
     prompt = f"""
     The title of the Astronomy Picture of the Day image is: '{title}'. 
-    Generate one correct location and three false locations for this image.
+    Generate one correct answer and three false answers to the question: What location is shown in this image?.
     The three false locations should be random and related to the true location.
-    Do not use commas except to separate the answer choices.
-    Do not use any special characters.
+    Do not use commas except to separate the answer choices. For example, instead of Mount Fiji, Japan use Mount Fiji Japan
+    Do not use any special characters and do not use quotation marks.
     Example format:
     [correct location, false location 1, false location 2, false location 3]
     """
@@ -118,7 +118,7 @@ def update_game(root, title_label, image_label, button_frame):
     # Fetch and update the image
     response = requests.get(image_url)
     img_data = Image.open(BytesIO(response.content))
-    img_data = resize_image_with_aspect_ratio(img_data, max_width=500, max_height=300)
+    img_data = resize_image_with_aspect_ratio(img_data, max_width=500, max_height=350)
     img = ImageTk.PhotoImage(img_data)
     image_label.config(image=img)
     image_label.image = img
