@@ -52,7 +52,7 @@ def generate_answers(title):
 
     try:
         completion = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}]
         )
         return completion.choices[0].message.content.strip('[]')
